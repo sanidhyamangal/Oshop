@@ -20,6 +20,7 @@ const routes:Routes=[
     { path: 'shoping-cart', component: ShopingCartComponent },
     { path: 'check-out', component: CheckOutComponent },
     { path: 'order-success', component: OrderSuccessComponent },
+    { path: 'my/orders', component: MyOrdersComponent },
     { path: 'login', component: LoginComponent },
     { path: 'admin/orders', component: AdminOrdersComponent },
     { path: 'admin/products', component: AdminProductsComponent },
