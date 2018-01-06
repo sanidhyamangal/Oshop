@@ -13,20 +13,22 @@ import { ShopingCartComponent } from './shoping-cart/shoping-cart.component';
 import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
 import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
 
+import { AuthGuard } from './services/auth-guard.service';
 
 const routes:Routes=[
     { path: '', component: HomeComponent },
     { path: 'products', component: ProductsComponent },
     { path: 'shoping-cart', component: ShopingCartComponent },
-    { path: 'check-out', component: CheckOutComponent },
-    { path: 'order-success', component: OrderSuccessComponent },
-    { path: 'my/orders', component: MyOrdersComponent },
+    { path: 'check-out', component: CheckOutComponent,canActivate:[AuthGuard]},
+    { path: 'order-success', component: OrderSuccessComponent,canActivate:[AuthGuard] },
+    { path: 'my/orders', component: MyOrdersComponent,canActivate:[AuthGuard] },
     { path: 'login', component: LoginComponent },
-    { path: 'admin/orders', component: AdminOrdersComponent },
-    { path: 'admin/products', component: AdminProductsComponent },
+    { path: 'admin/orders', component: AdminOrdersComponent,canActivate:[AuthGuard] },
+    { path: 'admin/products', component: AdminProductsComponent,canActivate:[AuthGuard] },
 ]
 @NgModule({
     imports: [RouterModule.forRoot(routes)],
     exports: [RouterModule],
+    providers:[AuthGuard]
 })
 export class AppRoutingModule { }

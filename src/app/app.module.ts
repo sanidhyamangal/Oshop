@@ -47,7 +47,7 @@ import { AuthService } from './services/auth.service';
     NgbModule.forRoot(),
   ],
   providers: [
-    AuthService
+    AuthService,
   ],
   bootstrap: [AppComponent]
 })
