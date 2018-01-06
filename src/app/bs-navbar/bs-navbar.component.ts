@@ -7,6 +7,7 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./bs-navbar.component.css']
 })
 export class BsNavbarComponent {
+  isCollapsed=true
   constructor(public auth:AuthService) { }
   logout(){
     this.auth.logout();
