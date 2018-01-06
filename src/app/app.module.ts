@@ -17,7 +17,11 @@ import { OrderSuccessComponent } from './order-success/order-success.component';
 import { ShopingCartComponent } from './shoping-cart/shoping-cart.component';
 import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
 import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
+
+
 import { AppRoutingModule } from './app-routes.module';
+
+import { AuthService } from './services/auth.service';
 
 
 @NgModule({
@@ -42,7 +46,9 @@ import { AppRoutingModule } from './app-routes.module';
     AppRoutingModule,
     NgbModule.forRoot(),
   ],
-  providers: [],
+  providers: [
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
