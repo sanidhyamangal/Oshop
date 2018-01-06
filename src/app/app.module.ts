@@ -22,6 +22,7 @@ import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.componen
 import { AppRoutingModule } from './app-routes.module';
 
 import { AuthService } from './services/auth.service';
+import { UserService } from './services/user.service';
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import { AuthService } from './services/auth.service';
   ],
   providers: [
     AuthService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })
