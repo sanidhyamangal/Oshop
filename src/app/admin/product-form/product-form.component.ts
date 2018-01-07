@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CategoriesService } from '../../services/categories.service';
 
 @Component({
   selector: 'product-form',
@@ -6,9 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./product-form.component.css']
 })
 export class ProductFormComponent implements OnInit {
-
-  constructor() { }
-
+  categories$;
+  constructor(private categoriesService:CategoriesService) {
+    this.categories$ = this.categoriesService.getCategories();
+   }
   ngOnInit() {
   }
 
