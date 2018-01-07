@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoriesService } from '../../services/categories.service';
+import { Observable } from 'rxjs/Observable';
+
+import { ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'product-form',
@@ -7,11 +10,13 @@ import { CategoriesService } from '../../services/categories.service';
   styleUrls: ['./product-form.component.css']
 })
 export class ProductFormComponent implements OnInit {
-  categories$;
-  constructor(private categoriesService:CategoriesService) {
+  categories$:Observable<any>;
+  constructor(private categoriesService:CategoriesService, private productService:ProductService) {
     this.categories$ = this.categoriesService.getCategories();
    }
   ngOnInit() {
   }
-
+  submitproductForm(formValue){
+    this.productService.save(formValue);
+  }
 }

@@ -22,6 +22,7 @@ import { AppRoutingModule } from './app-routes.module';
 import { AuthService } from './services/auth.service';
 import { UserService } from './services/user.service';
 import { CategoriesService } from './services/categories.service';
+import { ProductService } from './services/product.service';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { CategoriesService } from './services/categories.service';
   providers: [
     AuthService,
     UserService,
-    CategoriesService
+    CategoriesService,
+    ProductService
   ],
   bootstrap: [AppComponent]
 })
