@@ -25,8 +25,6 @@ const routes:Routes=[
     { path: 'my/orders', component: MyOrdersComponent,canActivate:[AuthGuard] },
     { path: 'login', component: LoginComponent },
     { path: 'admin', loadChildren: './admin/admin.module#AdminModule',canActivate:[AuthGuard,AdminAuthGuard] },
-    // { path: 'admin/orders', component: AdminOrdersComponent,canActivate:[AuthGuard,AdminAuthGuard] },
-    // { path: 'admin/products', component: AdminProductsComponent,canActivate:[AuthGuard,AdminAuthGuard] },
 ]
 @NgModule({
     imports: [RouterModule.forRoot(routes)],

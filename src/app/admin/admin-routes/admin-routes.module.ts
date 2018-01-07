@@ -6,9 +6,10 @@ import { AdminProductsComponent } from '../admin-products/admin-products.compone
 import { ProductFormComponent } from '../product-form/product-form.component';
 
 const adminRoutes:Routes=[
-  { path: 'admin/orders', component: AdminOrdersComponent },
-  { path: 'admin/products/new', component: ProductFormComponent },
-  { path: 'admin/products', component: AdminProductsComponent },
+  { path: 'orders', component: AdminOrdersComponent },
+  { path: 'products/new', component: ProductFormComponent },
+  { path: 'products/:id', component: ProductFormComponent },
+  { path: 'products', component: AdminProductsComponent },
 ]
 @NgModule({
   imports: [
