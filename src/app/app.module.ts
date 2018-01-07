@@ -6,6 +6,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+import { AdminModule } from './admin/admin.module';
 import { AppComponent } from './app.component';
 import { BsNavbarComponent } from './bs-navbar/bs-navbar.component';
 import { ProductsComponent } from './products/products.component';
@@ -15,9 +16,6 @@ import { CheckOutComponent } from './check-out/check-out.component';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { OrderSuccessComponent } from './order-success/order-success.component';
 import { ShopingCartComponent } from './shoping-cart/shoping-cart.component';
-import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
-import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
-
 
 import { AppRoutingModule } from './app-routes.module';
 
@@ -36,11 +34,10 @@ import { UserService } from './services/user.service';
     MyOrdersComponent,
     OrderSuccessComponent,
     ShopingCartComponent,
-    AdminProductsComponent,
-    AdminOrdersComponent,
   ],
   imports: [
     BrowserModule,
+    AdminModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
