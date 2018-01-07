@@ -2,7 +2,7 @@ import { Component, OnInit,OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 
 import { ProductService } from '../../services/product.service';
-import { prepareProfile } from 'selenium-webdriver/firefox';
+import { Product } from '../../models/app-product';
 
 @Component({
   selector: 'app-admin-products',
@@ -10,8 +10,8 @@ import { prepareProfile } from 'selenium-webdriver/firefox';
   styleUrls: ['./admin-products.component.css']
 })
 export class AdminProductsComponent implements OnInit,OnDestroy {
-  products:{title:string}[];
-  filteredProducts:any[];
+  products:Product[];
+  filteredProducts:Product[];
   subscription:Subscription;
   constructor(private productService:ProductService) {
     this.subscription = this.productService.getAll()
