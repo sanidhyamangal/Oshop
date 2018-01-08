@@ -16,6 +16,8 @@ import { CheckOutComponent } from './check-out/check-out.component';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { OrderSuccessComponent } from './order-success/order-success.component';
 import { ShopingCartComponent } from './shoping-cart/shoping-cart.component';
+import { ProductFilterComponent } from './products/product-filter/product-filter.component';
+import { ProductCardComponent } from './product-card/product-card.component';
 
 import { AppRoutingModule } from './app-routes.module';
 
@@ -23,8 +25,6 @@ import { AuthService } from './services/auth.service';
 import { UserService } from './services/user.service';
 import { CategoriesService } from './services/categories.service';
 import { ProductService } from './services/product.service';
-import { ProductFilterComponent } from './products/product-filter/product-filter.component';
-
 
 @NgModule({
   declarations: [
@@ -37,7 +37,8 @@ import { ProductFilterComponent } from './products/product-filter/product-filter
     MyOrdersComponent,
     OrderSuccessComponent,
     ShopingCartComponent,
-    ProductFilterComponent
+    ProductFilterComponent,
+    ProductCardComponent
   ],
   imports: [
     BrowserModule,
