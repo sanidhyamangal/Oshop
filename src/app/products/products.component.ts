@@ -1,16 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ProductService } from '../services/product.service';
+import { CategoriesService } from '../services/categories.service';
+import { ActivatedRoute } from '@angular/router';
+import { Product } from '../models/app-product';
 
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css']
 })
-export class ProductsComponent implements OnInit {
-  products$;
-  constructor(private productService:ProductService) { 
-    this.products$ = productService.getAll();
-  }
-  ngOnInit() {
+export class ProductsComponent {
+  products:Product[]=[];
+  filteredProducts:Product[]=[];
+  categories$;
+  category;
+  constructor(private route:ActivatedRoute,private productService:ProductService,private categoriesService:CategoriesService) { 
+     productService.getAll().switchMap(products=>{
+       this.products = products;
+       return this.route.queryParamMap
+     }).subscribe(cateory=>{
+        this.category = cateory.get('category');
+        this.filteredProducts = (this.category)?this.products.filter(p=>p.categories === this.category):this.products;
+      });
+    this.categories$ = categoriesService.getCategories();
   }
 }
