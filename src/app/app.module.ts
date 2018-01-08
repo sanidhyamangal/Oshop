@@ -25,6 +25,7 @@ import { AuthService } from './services/auth.service';
 import { UserService } from './services/user.service';
 import { CategoriesService } from './services/categories.service';
 import { ProductService } from './services/product.service';
+import { ShoppingCartService } from './services/shopping-cart.service';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,6 @@ import { ProductService } from './services/product.service';
     OrderSuccessComponent,
     ShopingCartComponent,
     ProductFilterComponent,
-    // ProductCardComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +53,8 @@ import { ProductService } from './services/product.service';
     AuthService,
     UserService,
     CategoriesService,
-    ProductService
+    ProductService,
+    ShoppingCartService
   ],
   bootstrap: [AppComponent]
 })
