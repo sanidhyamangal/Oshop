@@ -12,9 +12,8 @@ import { Product } from '../models/app-product';
 export class ProductsComponent {
   products:Product[]=[];
   filteredProducts:Product[]=[];
-  categories$;
   category;
-  constructor(private route:ActivatedRoute,private productService:ProductService,private categoriesService:CategoriesService) { 
+  constructor(private route:ActivatedRoute,private productService:ProductService) { 
      productService.getAll().switchMap(products=>{
        this.products = products;
        return this.route.queryParamMap
@@ -22,6 +21,5 @@ export class ProductsComponent {
         this.category = cateory.get('category');
         this.filteredProducts = (this.category)?this.products.filter(p=>p.categories === this.category):this.products;
       });
-    this.categories$ = categoriesService.getCategories();
   }
 }

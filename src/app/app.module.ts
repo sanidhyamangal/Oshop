@@ -23,6 +23,7 @@ import { AuthService } from './services/auth.service';
 import { UserService } from './services/user.service';
 import { CategoriesService } from './services/categories.service';
 import { ProductService } from './services/product.service';
+import { ProductFilterComponent } from './products/product-filter/product-filter.component';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { ProductService } from './services/product.service';
     MyOrdersComponent,
     OrderSuccessComponent,
     ShopingCartComponent,
+    ProductFilterComponent
   ],
   imports: [
     BrowserModule,
