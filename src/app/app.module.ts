@@ -38,7 +38,7 @@ import { ProductService } from './services/product.service';
     OrderSuccessComponent,
     ShopingCartComponent,
     ProductFilterComponent,
-    ProductCardComponent
+    // ProductCardComponent
   ],
   imports: [
     BrowserModule,
