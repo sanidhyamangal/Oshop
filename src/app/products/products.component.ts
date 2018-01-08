@@ -13,13 +13,20 @@ export class ProductsComponent {
   products:Product[]=[];
   filteredProducts:Product[]=[];
   category;
+  filteredbyCategorty:Product[]=[];
   constructor(private route:ActivatedRoute,private productService:ProductService) { 
      productService.getAll().switchMap(products=>{
        this.products = products;
        return this.route.queryParamMap
      }).subscribe(cateory=>{
         this.category = cateory.get('category');
-        this.filteredProducts = (this.category)?this.products.filter(p=>p.categories === this.category):this.products;
+        this.filteredbyCategorty = this.filteredProducts = (this.category)?this.products.filter(p=>p.categories === this.category):this.products;
       });
+  }
+
+  filterProducts(query:string){
+    this.filteredProducts = (query)?this.products
+      .filter(p=>p.title.toLocaleLowerCase().includes(query.toLocaleLowerCase()))
+      :this.filteredbyCategorty;
   }
 }

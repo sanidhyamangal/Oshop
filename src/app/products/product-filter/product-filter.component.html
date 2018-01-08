@@ -1,3 +1,6 @@
+<p>
+  <input #query (keyup)="filter(query.value)" type="text" class="form-control" placeholder="Search..">
+</p>
 <div class="list-group sticky-top">
   <a class="list-group-item list-group-item-action"
     [routerLink]="['/']" 
