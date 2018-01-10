@@ -6,7 +6,7 @@
   <table class="table">
     <thead>
       <tr>
-        <th>Title</th>
+        <th>Product</th>
         <th>Quantity</th>
         <th>Price</th>
       </tr>
@@ -14,7 +14,14 @@
     <tr *ngFor="let item of cart.items">
       <td>{{item.product.title}}</td>
       <td>{{item.quantity}}</td>
-      <td></td>
+      <td>{{item.totalPrice | currency:'INR':'symbol'}}</td>
     </tr>
+    <tfoot>
+      <tr>
+        <th></th>
+        <th></th>
+        <th>{{cart.totalPrice | currency:'INR':'symbol'}}</th>
+      </tr>
+    </tfoot>
   </table>
 </ng-container>
