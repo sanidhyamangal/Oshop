@@ -10,7 +10,7 @@
      <ng-template #updateQuantity>
        <div class="row no-gutters">
          <div class="col-2">
-           <button class="btn btn-block btn-secondary">-</button>
+           <button (click)="removeFromCart()" class="btn btn-block btn-secondary">-</button>
          </div>
          <div class="col text-center">
            {{Quantity}} in cart

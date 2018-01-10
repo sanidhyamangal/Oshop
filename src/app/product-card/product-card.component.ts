@@ -23,4 +23,8 @@ export class ProductCardComponent {
     let item = this.shoppingCart.items[this.product.$key];
     return item ? item.quantity : 0;
   }
+
+  removeFromCart(){
+    this.cartService.removeFromCart(this.product);
+  }
 }
