@@ -12,7 +12,7 @@ import { ShoppingCartService } from '../services/shopping-cart.service';
 export class BsNavbarComponent implements OnInit {
   isCollapsed=true;
   appUser:AppUser;
-  shoppingCartItemCount:number
+  cart$;
   constructor(private auth:AuthService, private shoppingCartService:ShoppingCartService ) {
    }
   logout(){
@@ -21,12 +21,6 @@ export class BsNavbarComponent implements OnInit {
   
   async ngOnInit(){
     this.auth.appUser$.subscribe(appUser=>this.appUser = appUser);
-    let cart$ = await this.shoppingCartService.getCart();
-    cart$.subscribe(cart=>{
-      this.shoppingCartItemCount = 0;
-      for(let productId in cart.items){
-        this.shoppingCartItemCount+=cart.items[productId].quantity;
-      }
-    })
+    this.cart$ = await this.shoppingCartService.getCart();
   }
 }
