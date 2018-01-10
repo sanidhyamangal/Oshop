@@ -6,7 +6,7 @@
   </div>
   <div *ngIf="showActions" class="card-footer">
     <button *ngIf="Quantity == 0; else updateQuantity"
-     (click)="addToCart(product)" class="btn btn-secondary btn-block">Add to Cart</button>
+     (click)="addToCart()" class="btn btn-secondary btn-block">Add to Cart</button>
      <ng-template #updateQuantity>
        <div class="row no-gutters">
          <div class="col-2">
@@ -16,7 +16,7 @@
            {{Quantity}} in cart
          </div>
          <div class="col-2">
-           <button class="btn btn-block btn-secondary">+</button>
+           <button (click)="addToCart()" class="btn btn-block btn-secondary">+</button>
          </div>
        </div>
      </ng-template>
