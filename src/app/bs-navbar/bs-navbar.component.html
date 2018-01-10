@@ -7,7 +7,10 @@
   <div class="collapse navbar-collapse navbar-toggleable-xs" [ngbCollapse]="isCollapsed">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item" routerLinkActive="active current" >
-        <a class="nav-link" [routerLink]="['/shoping-cart']">Shoping Cart</a>
+        <a class="nav-link" [routerLink]="['/shoping-cart']">
+          Shoping Cart
+          <span class="badge badge-warning">{{shoppingCartItemCount}}</span>
+        </a>
       </li>
       <ng-template #anonymusUser>
         <li class="nav-item" routerLinkActive="active current" >
