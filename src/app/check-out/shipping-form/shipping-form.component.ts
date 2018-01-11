@@ -3,6 +3,7 @@ import { ShoppingCartService } from '../../services/shopping-cart.service';
 import { Subscription } from 'rxjs/Subscription';
 import { ShoppingCart } from '../../models/shopping-cart';
 import { OrderService } from '../../services/order.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'shipping-form',
@@ -13,15 +14,18 @@ export class ShippingFormComponent implements OnInit, OnDestroy {
   shipping = {};
   subscription:Subscription;
   cart:ShoppingCart;
-  constructor(private cartService:ShoppingCartService, private orderService:OrderService) { }
+  userId;
+  constructor(private cartService:ShoppingCartService, private orderService:OrderService, private authService:AuthService) { }
 
    async ngOnInit() {
     let cart$ =  await this.cartService.getCart();
     this.subscription = cart$.subscribe(cart => this.cart = cart); 
+    this.authService.user$.subscribe(user=>this.userId = user.uid);
   }
 
   placeOrder() {
     let order = {
+      userId:this.userId,
       datePlaced: new Date().getTime(),
       shipping:this.shipping,
       items: this.cart.items.map(i=>{
