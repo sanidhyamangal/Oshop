@@ -5,6 +5,9 @@ import * as firebase from 'firebase';
 
 import { AppUser } from '../models/app-user';
 
+import 'rxjs/add/operator/take';
+
+
 @Injectable()
 export class UserService {
 
@@ -19,5 +22,19 @@ export class UserService {
 
   get(uid:string):FirebaseObjectObservable<AppUser>{
     return this.db.object('users/'+uid);
+  }
+
+  getAll(){
+    return this.db.list('users');
+  }
+
+  async toggleAdmin(value:string){
+   let user$ =  await this.get(value);
+   user$.take(1).subscribe(user=>{
+     let toggleState = !user.isAdmin;
+     user$.update({
+       isAdmin:toggleState
+     });     
+   });
   }
 }

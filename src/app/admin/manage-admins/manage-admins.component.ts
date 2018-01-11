@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-manage-admins',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ManageAdminsComponent implements OnInit {
 
-  constructor() { }
+  users$;
+  constructor( private userService:UserService) { }
 
   ngOnInit() {
+    this.users$ = this.userService.getAll();
   }
 
+  toggleAdmin(user){
+    this.userService.toggleAdmin(user.$key);
+  }
 }
