@@ -1,5 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
-  <a class="navbar-brand" [routerLink]="['/']">O</a>
+  <a class="navbar-brand" [routerLink]="['/']">
+    <i class="fa fa-leaf"></i>
+  </a>
   <button class="navbar-toggler hidden-sm-up" type="button" (click)="isCollapsed = !isCollapsed">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -8,10 +10,12 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item" routerLinkActive="active current" >
         <a class="nav-link" [routerLink]="['/shoping-cart']">
-          Shoping Cart
+          <i class="fa fa-shopping-cart"></i>
           <span class="badge badge-warning" *ngIf="cart$ | async as cart" >{{cart.itemCount}}</span>
         </a>
       </li>
+    </ul>
+    <ul class="navbar-nav">
       <ng-template #anonymusUser>
         <li class="nav-item" routerLinkActive="active current" >
           <a class="nav-link" [routerLink]="['/login']">Login</a>
