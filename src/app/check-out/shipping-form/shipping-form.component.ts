@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs/Subscription';
 import { ShoppingCart } from '../../models/shopping-cart';
 import { OrderService } from '../../services/order.service';
 import { AuthService } from '../../services/auth.service';
+import { Order } from '../../models/order';
 
 @Component({
   selector: 'shipping-form',
@@ -24,22 +25,8 @@ export class ShippingFormComponent implements OnInit, OnDestroy {
   }
 
   placeOrder() {
-    let order = {
-      userId:this.userId,
-      datePlaced: new Date().getTime(),
-      shipping:this.shipping,
-      items: this.cart.items.map(i=>{
-        return {
-          product:{
-            title:i.title,
-            imageUrl:i.imageUrl,
-            price:i.price
-          },
-          quantity: i.quantity,
-          totalPrice:i.totalPrice
-        }
-      })
-    };
+    let order = new Order(this.userId, this.shipping, this.cart);
+    // console.log(order);
     this.orderService.placeOrder(order);
   }
   
