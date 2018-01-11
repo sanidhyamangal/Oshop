@@ -40,7 +40,12 @@ export class ShoppingCartService {
     let cartId = await this.getOrCreateCartId();
     let items$ = this.getItem(cartId,product.$key);
     items$.take(1).subscribe(item=>{
-      items$.update({product:product,quantity:(item.quantity || 0)+change});
+      items$.update({
+        title:product.title,
+        price:product.price,
+        imageUrl:product.imageUrl,
+        quantity:(item.quantity || 0)+change
+      });
     });
   }
   async addToCart(product:Product){

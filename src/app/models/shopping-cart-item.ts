@@ -1,10 +1,16 @@
 import { Product } from "./app-product";
 
 export class ShoppingCartItem{
-
-    constructor(public product:Product, public quantity:number){ }
+    $key:string;
+    title:string;
+    price:number;
+    imageUrl:string;
+    quantity:number;
+    constructor(init?:Partial<ShoppingCartItem>){
+        Object.assign(this,init)
+     }
 
     get totalPrice(){
-        return this.product.price*this.quantity
+        return this.price*this.quantity
     }
 }
