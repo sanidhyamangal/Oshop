@@ -1,4 +1,5 @@
 <div class="row col-10" *ngIf="order$ | async as order" >
+  <h2>Order Details</h2>
   <table class="table">
     <thead>
       <tr>
@@ -15,4 +16,23 @@
       <td class="text-right" >{{item.totalPrice | currency:'INR':'symbol'}}</td>
     </tr>
   </table>
-  <div>
+<div>
+  <div class="card" *ngIf="order.shipping as shipping">
+      <div class="card-body">
+        <h4 class="card-title">Shipment Details</h4>
+        <p class="card-text">Shipment Details of your order dated {{order.datePlaced | date:fullDate}} are as follows</p>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            {{shipping.name}}
+          </li>
+          <li class="list-group-item">
+            {{shipping.addressLine1}},{{shipping.addressLine2}}
+          </li>
+          <li class="list-group-item">
+            {{shipping.city}}
+          </li>
+        </ul>
+      </div>
+    </div>
+</div>
+</div>
