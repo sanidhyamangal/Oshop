@@ -1,5 +1,10 @@
 <div class="row col-10" *ngIf="order$ | async as order" >
-  <h2>Order Details</h2>
+  <h2>
+    Order Details
+    <div>
+      <a class="btn btn-primary btn-sm " [routerLink]="['/my/orders']">Back to My Orders</a>
+    </div>
+  </h2>
   <table class="table">
     <thead>
       <tr>
