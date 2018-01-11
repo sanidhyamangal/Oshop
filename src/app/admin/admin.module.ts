@@ -10,6 +10,7 @@ import { AdminOrdersComponent } from './admin-orders/admin-orders.component';
 import { ProductFormComponent } from './product-form/product-form.component';
 import { ProductCardComponent } from '../product-card/product-card.component';
 import { ProductQuantityComponent } from '../products/product-quantity/product-quantity.component';
+import { ManageAdminsComponent } from './manage-admins/manage-admins.component';
 
 @NgModule({
   imports: [
@@ -23,7 +24,8 @@ import { ProductQuantityComponent } from '../products/product-quantity/product-q
     AdminOrdersComponent,
     ProductFormComponent,
     ProductCardComponent,
-    ProductQuantityComponent
+    ProductQuantityComponent,
+    ManageAdminsComponent
   ],
   exports:[
     FormsModule,
