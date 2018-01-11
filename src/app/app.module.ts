@@ -18,6 +18,7 @@ import { OrderSuccessComponent } from './order-success/order-success.component';
 import { ShopingCartComponent } from './shoping-cart/shoping-cart.component';
 import { ProductFilterComponent } from './products/product-filter/product-filter.component';
 import { ProductCardComponent } from './product-card/product-card.component';
+import { ShippingFormComponent } from './check-out/shipping-form/shipping-form.component';
 
 import { AppRoutingModule } from './app-routes.module';
 
@@ -39,6 +40,7 @@ import { ShoppingCartService } from './services/shopping-cart.service';
     OrderSuccessComponent,
     ShopingCartComponent,
     ProductFilterComponent,
+    ShippingFormComponent
   ],
   imports: [
     BrowserModule,
