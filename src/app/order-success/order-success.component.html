@@ -1,3 +1,18 @@
-<p>
-  order-success works!
-</p>
+<div class="row col-10" *ngIf="order$ | async as order" >
+  <table class="table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Product</th>
+        <th style="width: 230px" >Quantity</th>
+        <th class="text-right" style="width: 200px">Price</th>
+      </tr>
+    </thead>
+    <tr *ngFor="let item of order.items">
+      <td><div [style.backgroundImage]="'url('+item.product.imageUrl+')'" class="thumbnail" ></div></td>
+      <td>{{item.product.title}}</td>
+      <td>{{item.quantity}}</td>
+      <td class="text-right" >{{item.totalPrice | currency:'INR':'symbol'}}</td>
+    </tr>
+  </table>
+  <div>

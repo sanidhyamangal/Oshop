@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { OrderService } from '../services/order.service';
+
+import 'rxjs/add/operator/switchMap';
 
 @Component({
   selector: 'app-order-success',
@@ -6,10 +10,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./order-success.component.css']
 })
 export class OrderSuccessComponent implements OnInit {
+  order$;
+  orderId;
+  constructor(private route:ActivatedRoute,private orderService:OrderService) { }
 
-  constructor() { }
-
-  ngOnInit() {
+  async ngOnInit() {
+    await this.route.paramMap.subscribe(param=>this.orderId = param.get('id'));
+    this.order$ = this.orderService.getOrder(this.orderId);
   }
 
 }
