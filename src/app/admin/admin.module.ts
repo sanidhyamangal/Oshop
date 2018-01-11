@@ -9,6 +9,7 @@ import { AdminProductsComponent } from './admin-products/admin-products.componen
 import { AdminOrdersComponent } from './admin-orders/admin-orders.component';
 import { ProductFormComponent } from './product-form/product-form.component';
 import { ProductCardComponent } from '../product-card/product-card.component';
+import { ProductQuantityComponent } from '../products/product-quantity/product-quantity.component';
 
 @NgModule({
   imports: [
@@ -21,12 +22,14 @@ import { ProductCardComponent } from '../product-card/product-card.component';
     AdminProductsComponent,
     AdminOrdersComponent,
     ProductFormComponent,
-    ProductCardComponent
+    ProductCardComponent,
+    ProductQuantityComponent
   ],
   exports:[
     FormsModule,
     CustomFormsModule,
-    ProductCardComponent
+    ProductCardComponent,
+    ProductQuantityComponent
   ]
 })
 export class AdminModule { }
