@@ -1,5 +1,4 @@
-import { Component, OnInit ,OnDestroy } from '@angular/core';
-import { ShoppingCartService } from '../../services/shopping-cart.service';
+import { Component, OnInit ,OnDestroy, Input } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { ShoppingCart } from '../../models/shopping-cart';
 import { OrderService } from '../../services/order.service';
@@ -13,16 +12,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./shipping-form.component.css']
 })
 export class ShippingFormComponent implements OnInit, OnDestroy {
+  @Input('cart') cart:ShoppingCart;
   shipping = {};
-  subscription:Subscription;
-  cart:ShoppingCart;
+  userSubscription:Subscription;
   userId;
-  constructor(private cartService:ShoppingCartService, private orderService:OrderService, private authService:AuthService, private router:Router) { }
+  constructor(private orderService:OrderService, private authService:AuthService, private router:Router) { }
 
    async ngOnInit() {
-    let cart$ =  await this.cartService.getCart();
-    this.subscription = cart$.subscribe(cart => this.cart = cart); 
-    this.authService.user$.subscribe(user=>this.userId = user.uid);
+    this.userSubscription = this.authService.user$.subscribe(user=>this.userId = user.uid);
   }
 
   async placeOrder() {
@@ -32,6 +29,6 @@ export class ShippingFormComponent implements OnInit, OnDestroy {
   }
   
   ngOnDestroy(){
-    this.subscription.unsubscribe();
+    this.userSubscription.unsubscribe();
    }
 }
