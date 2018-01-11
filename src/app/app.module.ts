@@ -19,6 +19,7 @@ import { ShopingCartComponent } from './shoping-cart/shoping-cart.component';
 import { ProductFilterComponent } from './products/product-filter/product-filter.component';
 import { ProductCardComponent } from './product-card/product-card.component';
 import { ShippingFormComponent } from './check-out/shipping-form/shipping-form.component';
+import { ShippingOrderSummaryComponent } from './check-out/shipping-order-summary/shipping-order-summary.component';
 
 import { AppRoutingModule } from './app-routes.module';
 
@@ -41,7 +42,8 @@ import { OrderService } from './services/order.service';
     OrderSuccessComponent,
     ShopingCartComponent,
     ProductFilterComponent,
-    ShippingFormComponent
+    ShippingFormComponent,
+    ShippingOrderSummaryComponent
   ],
   imports: [
     BrowserModule,
