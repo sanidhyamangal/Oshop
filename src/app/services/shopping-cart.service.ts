@@ -45,11 +45,13 @@ export class ShoppingCartService {
     let cartId = await this.getOrCreateCartId();
     let items$ = this.getItem(cartId,product.$key);
     items$.take(1).subscribe(item=>{
-      items$.update({
+      let quantity = (item.quantity || 0)+change;
+      if(quantity === 0) items$.remove(); 
+      else items$.update({
         title:product.title,
         price:product.price,
         imageUrl:product.imageUrl,
-        quantity:(item.quantity || 0)+change
+        quantity: quantity
       });
     });
   }
