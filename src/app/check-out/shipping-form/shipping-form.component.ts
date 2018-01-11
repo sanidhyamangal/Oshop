@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./shipping-form.component.css']
 })
 export class ShippingFormComponent implements OnInit {
-
+  shipping = {};
   constructor() { }
 
   ngOnInit() {
   }
 
+  placeOrder() {
+    console.log(this.shipping);
+  }    
 }
