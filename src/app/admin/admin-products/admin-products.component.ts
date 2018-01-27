@@ -20,7 +20,6 @@ export class AdminProductsComponent implements OnInit,OnDestroy {
   filter(query:string){
     this.filteredProducts  = (query)?this.products.filter(p=>p.title.toLocaleLowerCase().includes(query.toLocaleLowerCase())):this.products;
   }
-
   ngOnDestroy(){
     this.subscription.unsubscribe();
   }

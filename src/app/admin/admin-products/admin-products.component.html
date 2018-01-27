@@ -1,9 +1,7 @@
 <p>
     <a [routerLink]="['/admin/products/new']" class="btn btn-primary">New Product</a>
 </p>
-<p>
-    <input #query (keyup)="filter(query.value)" type="text" class="form-control">
-</p>
+<search-bar (filter-key)="filter($event)" ></search-bar>
 <table class="table">
     <thead>
         <tr>
