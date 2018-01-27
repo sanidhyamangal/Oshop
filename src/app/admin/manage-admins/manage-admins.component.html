@@ -1,7 +1,7 @@
 <h1>Manage Admins</h1>
-
+<search-bar (filter-key)=filter($event) ></search-bar>
 <ul class="list-group">
-  <li class="list-group-item list-group-action" *ngFor="let user of users$ | async" >
+  <li class="list-group-item list-group-action" *ngFor="let user of filteredUser" >
     <button [ngClass]="{
       'btn-danger':user.isAdmin,
       'btn-warning':!user.isAdmin
