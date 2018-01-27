@@ -11,6 +11,7 @@ import { ProductFormComponent } from './product-form/product-form.component';
 import { ProductCardComponent } from '../product-card/product-card.component';
 import { ProductQuantityComponent } from '../products/product-quantity/product-quantity.component';
 import { ManageAdminsComponent } from './manage-admins/manage-admins.component';
+import { SearchBarComponent } from '../search-bar/search-bar.component';
 
 @NgModule({
   imports: [
@@ -25,13 +26,15 @@ import { ManageAdminsComponent } from './manage-admins/manage-admins.component';
     ProductFormComponent,
     ProductCardComponent,
     ProductQuantityComponent,
-    ManageAdminsComponent
+    ManageAdminsComponent,
+    SearchBarComponent
   ],
   exports:[
     FormsModule,
     CustomFormsModule,
     ProductCardComponent,
-    ProductQuantityComponent
+    ProductQuantityComponent,
+    SearchBarComponent
   ]
 })
 export class AdminModule { }
